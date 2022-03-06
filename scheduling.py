@@ -25,6 +25,9 @@ def goal_directed_swapper1(solutions):
 def goal_directed_swapper2(solutions):
     pass
 
+def goal_directed_swapper3(solutions):
+    pass
+
 def main():
     # Create Environment
     E = Evo()
@@ -38,6 +41,7 @@ def main():
     E.add_agent('swapper', swapper, 1)
     #E.add_agent('agent1', goal_directed_swapper1, 1)
     #E.add_agent('agent2', goal_directed_swapper2, 1)
+    #E.add_agent('agent3', goal_directed_swapper3, 1)
 
     # Read data
     data_df = pd.read_json('orders.json') # Not sure if we want dict or df format

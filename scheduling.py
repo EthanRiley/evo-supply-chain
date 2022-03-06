@@ -7,7 +7,7 @@ def setups(L, data):
     pass
 
 def delays(L, data):
-    pass
+    return sum([data[x]['quantity'] for x, y in zip(L, L[1:]) if y < x])
 
 def priority(L, data):
     pass

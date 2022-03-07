@@ -50,7 +50,7 @@ def delay_directed_improvement(solutions):
         L[i], L[j] = L[j], L[i]
         return L
 
-def goal_directed_swapper3(solutions):
+def priority_directed_improvement(solutions):
     # improves by priority
 
     # Get list of all low prio orders before last high prio order
@@ -58,7 +58,7 @@ def goal_directed_swapper3(solutions):
     # Pick random agent from this list
 
     # Move agent behind last high prio agent
-    
+
     pass
 
 def main():

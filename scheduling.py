@@ -31,12 +31,34 @@ def goal_directed_swapper1(solutions):
     # Improves setups
     pass
 
-def goal_directed_swapper2(solutions):
+def delay_directed_improvement(solutions):
     # Improves by delays
-    pass
+    L = solutions[0]
+    delay_list = [(x, y) for x, y in zip(L, L[1:]) if y < x]
+    if len(delay_list) == 0:
+        i = rnd.randrange(0, len(L))
+        j = rnd.randrange(0, len(L))
+        L[i], L[j] = L[j], L[i]
+        return L
+    else:
+        swap_orders = delay_list[rnd.randrange(0, len(delay_list))]
+        i1 = L.index(swap_orders[0])
+        i2 = L.index(swap_orders[1])
+        L[i1], L[i2] = L[i2], L[i1]
+        i = rnd.randrange(0, len(L))
+        j = rnd.randrange(0, len(L))
+        L[i], L[j] = L[j], L[i]
+        return L
 
 def goal_directed_swapper3(solutions):
     # improves by priority
+
+    # Get list of all low prio orders before last high prio order
+
+    # Pick random agent from this list
+
+    # Move agent behind last high prio agent
+    
     pass
 
 def main():

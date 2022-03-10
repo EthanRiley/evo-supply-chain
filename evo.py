@@ -8,6 +8,8 @@ Assumes no Solutions class.
 import random as rnd
 import copy
 from functools import reduce
+import csv
+import pandas as pd
 
 class Evo:
 
@@ -65,7 +67,19 @@ class Evo:
                 self.remove_dominated()
                 print("Iteration:", i)
                 print("Population size:", self.size())
-                print(self)
+                df = pd.DataFrame()
+                for eval,sol in self.pop.items():
+                    df = df.append(dict(eval), ignore_index=True)
+                df.insert(0, 'teamname', ['Oreo' for _ in range(len(df))], True)
+                df.set_index('teamname', inplace=True)
+                df.to_csv('solutions_{}.csv'.format(i))
+                #print(type(self))
+                #df = pd.DataFrame()
+                #df['setups'] = list(self.fitness['setups'])
+                #df['lowpriority'] = list(self.fitness['lowpriority'])
+                #df['delays'] = list(self.fitness['delays'])
+                #df.to_csv('solutions_{}.csv'.format(i))
+
 
         # Clean up the population
         self.remove_dominated()

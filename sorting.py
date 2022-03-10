@@ -48,7 +48,9 @@ def main():
     # Add initial solution
     L = [rnd.randrange(1, 99) for _ in range(20)]
     E.add_solution(L)
-    print(E)
+    #print(E)
+    for eval,sol in E.pop.items():
+            print(str(dict(eval)))
 
     # Run the evolver
     E.evolve(100000, 500, 10000)
